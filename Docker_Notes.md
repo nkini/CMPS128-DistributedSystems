@@ -24,10 +24,10 @@ An image is software you load into a container.
     E: Some index files failed to download. They have been ignored, or old ones used instead.
     ```
 
-    Solution:
-    Made the error go away by commenting the following line in the Docker file
-    RUN         apt-get update && apt-get install -y python3
-    However, I did not ever see the error again after that, even with the line above uncommented.
+    Solution:  
+    Made the error go away by commenting the following line in the Docker file  
+    RUN         apt-get update && apt-get install -y python3  
+    However, I did not ever see the error again after that, even with the line above uncommented.  
 
 2.  
     ```shell
@@ -45,8 +45,8 @@ An image is software you load into a container.
     ```
     shows that httpserver is running at / and NOT at /root/webapp.  
 
-    Solution:
-    This just means that I haven't read the docs. https://docs.docker.com/engine/reference/builder/#cmd  
+    Solution:  
+    This just means that I haven't read the docs. https://docs.docker.com/engine/reference/builder/#cmd    
     *"There can only be one CMD instruction in a Dockerfile. If you list more than one CMD then only the last CMD will take effect."*  
     Write multiple shell commands as 
     ```shell
