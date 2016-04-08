@@ -1,7 +1,15 @@
-# Assignment 1 (still a draft)
+# Assignment 1
 
 ### Updates since first commit (See history to check for what changed)
-1. 4/7, 6:54pm - Fixed error in resource name - echo vs echobot. All echobot replaced with echo.
+1. 4/7, 6:54pm  - Fixed error in resource name - echo vs echobot. All echobot replaced with echo.
+2. 4/8, 12:32pm - Un-drafted. Added due date, Submission instructions link.
+
+### Due: Sunday, April 10, 2016 - 11:59pm
+
+## Submission:  
+Please see https://github.com/nkini/CMPS128-DistributedSystems/blob/master/submission-notes/Submissions.md and https://github.com/nkini/CMPS128-DistributedSystems/tree/master/submission-notes
+
+## Instructions:
 
 For the first assignment, you will create a REST API service that is able to differentiate between GET and POST requests, and responds to GET requests for the resources 'hello' and 'echo'.
 
@@ -158,5 +166,3 @@ http://www.slimframework.com/
 http://flightphp.com/
 
 If you don't see your favorite programming language in the list above, just google "rest server your_fave_prog_lang" and look for a page that has an example that looks like the example on one of these pages: http://restx.io/, http://flask.pocoo.org/, http://www.sinatrarb.com/.
-
-## Submission
