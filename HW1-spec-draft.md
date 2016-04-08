@@ -1,5 +1,8 @@
 # Assignment 1 (still a draft)
 
+### Updates since first commit (See history to check for what changed)
+1. 4/7, 6:54pm - Fixed error in resource name - echo vs echobot. All echobot replaced with echo.
+
 For the first assignment, you will create a REST API service that is able to differentiate between GET and POST requests, and responds to GET requests for the resources 'hello' and 'echo'.
 
 You will use Docker to create an image which must expose a web server at port 8080 that implements the REST interface below.
@@ -15,13 +18,13 @@ Response message-body: Hello world!
 ### echo 
 
 Method: GET  
-Resource Identifier: http://localhost:8080/echobot  
+Resource Identifier: http://localhost:8080/echo  
 Query parameters: msg  
 Parameter format: Alphanumeric  
 
-Call example: http://localhost:8080/echobot?msg=DistributedSystems  
+Call example: http://localhost:8080/echo?msg=DistributedSystems  
 Response message-body: DistributedSystems  
-Call example: http://localhost:8080/echobot?msg=CMPS128  
+Call example: http://localhost:8080/echo?msg=CMPS128  
 Response message-body: CMPS128  
 
 
