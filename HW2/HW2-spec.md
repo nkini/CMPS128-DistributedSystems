@@ -119,3 +119,7 @@ Pre-condition - localhost:49160 forwards to 8080 of the docker container running
 				'msg' : 'success'
 		 	}
 </pre>
+
+### Unit tests
+
+Note that the unit tests file we provide (https://github.com/nkini/CMPS128-DistributedSystems/blob/master/HW2/HW2-unittests.py) is a subset of the test cases that we will eventually run and that you will be graded on. Please ensure you run unit tests, and we even encourage you to write your own tests up. Ask on Piazza when something isn't clear, and make no more assumptions than are necessary.
