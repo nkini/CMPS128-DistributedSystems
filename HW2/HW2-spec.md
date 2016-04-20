@@ -1,5 +1,14 @@
 # Project 2: A single-site Key-value store
 
+### Due: Tuesday, April 26, 2016 - 11:59pm
+
+### Submission:  
+HW1 instructions apply about members and contribution notes. Submit the Commit URL you want us to test at: http://goo.gl/forms/CgQiDjKunG. The person submitting the form needs to enter her/his ucsc id in the members field also. Strip your Commit URLs of #comment-None, ?at=master
+
+### Instructions
+
+Start with going over this post: https://piazza.com/class/ilzil5nx6mb2n8?cid=76
+
 For your second project you will implement a REST-accessible Key-value store (KVS).  This piece of infrastructure will form the foundation of all future projects, which will extend it to become fault-tolerance and scalable.
 
 Key-value stores provide a simple storage API in which values (arbitrary data, often semi-structured documents in formats such as JSON) are stored and retrieved by *key*.  The typical KVS API looks like:
