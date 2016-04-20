@@ -7,7 +7,7 @@ HW1 instructions apply about members and contribution notes. Submit the Commit U
 
 ### Instructions
 
-Start with going over this post: https://piazza.com/class/ilzil5nx6mb2n8?cid=76
+Start with going over this post: https://piazza.com/class/ilzil5nx6mb2n8?cid=76 and this post  https://piazza.com/class/ilzil5nx6mb2n8?cid=80 - The latter says, you are expected to implement *your own* key value store, and not use an existing key value store such as Redis, Couch, Mongo etc.
 
 For your second project you will implement a REST-accessible Key-value store (KVS).  This piece of infrastructure will form the foundation of all future projects, which will extend it to become fault-tolerance and scalable.
 
