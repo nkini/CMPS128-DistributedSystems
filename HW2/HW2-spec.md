@@ -1,5 +1,12 @@
 # Project 2: A single-site Key-value store
 
+#### Changes
+Alright I'm sorry guys, I really shouldn't be changing the spec, but errors/ambiguities did creep through. There is an inconsistency with val and value in this document. Since I have been pressing you to use the unit tests, I will change this doc a bit to fit the unit tests, so that there are no changes to the unit test file.
+
+The only significant change is in the cURL(-ish) statement ```PUT localhost:49160/kvs/foo -d "val=bart" ``` where the value=bart was changed to val=bart. Such a change has also made in text describing the input/store.
+
+Important: Note the difference between *val* in the input, and *value* in the output json. This is by design, and not an error. Once again, aim at 100% unit test success, while keeping in mind that it's a subset of the complete set of unit test cases that we will run.
+
 ### Due: Tuesday, April 26, 2016 - 11:59pm
 
 ### Submission:  
@@ -15,7 +22,7 @@ Key-value stores provide a simple storage API in which values (arbitrary data, o
 
 |Call|Parameters|Returns|Example|
 |----|----------|-------|--------|
-|put|     key, value   |  Success or failure    | put(foo, bar) |
+|put|     key, val   |  Success or failure    | put(foo, bar) |
 |get| key | value | X = get(foo) # now X=bar|
 |del| key | Success or failure | del(foo) # subsequent gets to foo will fail|
 
@@ -27,7 +34,7 @@ In this project, you will implement a KVS in whatever way you choose.  We will o
   - charset: [a-zA-Z0-9_] i.e. Alphanumeric including underscore, and case-sensitive 
   - size:    1 to 250 characters
 
-- value
+- val
   - size:    1.5MB  
   (Also, please check what your server's default POST data limit is, and how to change it. We are tempted to increase this for future assignments.)
   - application/x-www-form-urlencoded  
@@ -39,9 +46,9 @@ In this project, you will implement a KVS in whatever way you choose.  We will o
 - get on a key that does not exist returns an error message
 - get on a key that exists returns the last value successfully written (via put) to that key, or a more recent value, if one exists
 - del on a key that does not exist returns an error message
-- put on a key that does not exist (say key=foo, value=bar) creates a resource at kvs/foo. Subsequent gets return 'bar' until the next put at kvs/foo
+- put on a key that does not exist (say key=foo, val=bar) creates a resource at kvs/foo. Subsequent gets return 'bar' until the next put at kvs/foo
 - del on a key that exists (say foo) deletes the resource kvs/foo and returns success. Subsequent gets return a 404 until the next put at kvs/foo
-- put on a key that exists (say key=foo) replaces the existing value with the new value (say baz), and acknowledges a replacement in the response. Subsequent gets return 'baz' until the next put at kvs/foo.
+- put on a key that exists (say key=foo) replaces the existing val with the new val (say baz), and acknowledges a replacement in the response. Subsequent gets return 'baz' until the next put at kvs/foo.
 - Even when multiple operations are being performed on the same key, their effect
 (the results of GETs and the final state of the store) should be an effect 
 that *could* have been produced by a single sequence of operations 
@@ -54,14 +61,14 @@ because we're only testing a single client, synchronous, non-distributed server 
 
 Pre-condition - localhost:49160 forwards to 8080 of the docker container running the kvs service
 
-1. PUT localhost:49160/kvs/foo -d "value=bart"
+1. PUT localhost:49160/kvs/foo -d "val=bart"
     - case 'foo' does not exist
 		  - status code : 201
 		  - response type : application/json
 		  - response body:
 <pre>
 		{
-      'replaced': 0, // 1 if an existing key's value was replaced
+      'replaced': 0, // 1 if an existing key's val was replaced
       'msg': 'success'
 		}
 </pre>
