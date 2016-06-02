@@ -41,7 +41,7 @@ Here's a list of functionalities expected from your system:
 5. AP systems are expected to be Eventually Consistent.
 6. A CP system that stops responding in the face of node failure is still CP. However, CP systems are expected to implement some sophisticated scheme to allow for responses in spite of node failure.
 
-Notes about how we run the system:
+Notes about how we run the system:  
 1. We will spawn exactly 5 docker containers. The environment variables will contain information about all of them when each node comes up.  
 2. Nodes will crash, but crashed nodes will not be restarted.  
 3. Reads and writes can be issued to any node using HTTP, in the same way as assignment 2, and the same responses are expected.  
