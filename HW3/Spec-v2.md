@@ -3,6 +3,8 @@ For the 3rd and final assignment, you will implement a fault-tolerant distribute
 ### Design space:
 Implement a C+P or an A+P KVS. Sure, if you feel particularly bold and rebellious, attempt C+A+P. Note that the P (partition tolerance) is mandatory. Introduce fault tolerance through a replication scheme. You can choose any scheme discussed in class, or even one of your own. The scheme of grading will differ depending on your design choice.
 
+Please submit a design document as part of your submission explaining your design, the reasons for your choices, and how you would expect your system to perform under different scenarios - network partition, node failure, heavy load etc.
+
 ### Instructions
 We will keep updating the spec to add more information, but at the moment, we are giving you the bare minimum that you need to get started, because we do want you to get started.
 
@@ -37,3 +39,10 @@ Here's a list of functionalities expected from your system:
     * An A+P system must continue operating, even if this means returning stale data. 
     * A C+P system must return consistent answers, even if this means blocking for the duration of the delay.  
   * Availability will receive bonus points on a CP system. Consistency will receive bonus points on an AP system.  
+5. AP systems are expected to be Eventually Consistent.
+6. A CP system that stops responding in the face of node failure is still CP. However, CP systems are expected to implement some sophisticated scheme to allow for responses in spite of node failure.
+
+Notes about how we run the system:
+1. We will spawn exactly 5 docker containers. The environment variables will contain information about all of them when each node comes up.
+2. Nodes will crash, but crashed nodes will not be restarted.
+3. Reads and writes can be issued to any node, and it is your job to ensure that it is correctly forwarded to a leader, if any.
