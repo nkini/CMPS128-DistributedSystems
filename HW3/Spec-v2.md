@@ -15,20 +15,19 @@ IP -- the externally-visible ip to which your instance should bind
 PORT -- the port to which your instance should bind  
 MEMBERS -- a comma-separated list of IP:PORT pairs representing the other nodes in the system  
 
-More information about environment variables can be foud here: 
+More information about environment variables can be found here: 
 https://docs.docker.com/engine/reference/run/#env-environment-variables
 
-For example, if we spun up, say, 3 instances of your docker container, the ENV variables for the first instance might look something like this:  
-IP = 10.0.0.1  
-PORT = 12345  
-MEMBERS = 10.0.0.1:12345,10.0.0.2:12345,10.0.0.3:12345  
+We will spin up exactly 5 instances of your docker container. The ENV variables for the first instance will look exactly like this:  
+IP=10.0.0.20  
+PORT=12345  
+MEMBERS=10.0.0.20:12345,10.0.0.21:12346,10.0.0.22:12347,10.0.0.23:12348,10.0.0.24:12349  
 
-You could use this information to e.g., broadcast to all nodes in your network, to the following addresses  
-10.0.0.1:12345, 10.0.0.2:12345, 10.0.0.3:12345. 
+Also, in this example, you would bind to the IP 10.0.0.20 and PORT 12345, and not localhost and 8080.
 
-Also, in this example, you would bind to the IP 10.0.0.1 and PORT 12345, and not localhost and 8080.
+To summarize, your 5 nodes will have IP address assignment from 10.0.0.20 to 10.0.0.24, and each node will have its IP address in the IP environment variable. Each of these 5 nodes will have port assignments from 12345 to 12349, and each node will have its port assignment in the PORT environment variable. The MEMBERS environment variable has the same value for all 5 nodes and will look exactly as above.
 
-Here's a list of functionalities expected from your system:  
+Here's a list of functionalities expected from your system:   
 1. In the case of no faults, all functional guarantees from HW1 and HW2 should hold.  
 2. In the case of no faults, every node should be able to receive a R/W request and provide a valid response.    
 3. Assuming no failures 1, 2 hold regardless of your design choice. The system must also be robust to the failure of any node. When failure occurs, your choice of C/A/P will dictate the appropriate behavior.  
@@ -43,6 +42,6 @@ Here's a list of functionalities expected from your system:
 6. A CP system that stops responding in the face of node failure is still CP. However, CP systems are expected to implement some sophisticated scheme to allow for responses in spite of node failure.
 
 Notes about how we run the system:
-1. We will spawn exactly 5 docker containers. The environment variables will contain information about all of them when each node comes up.
-2. Nodes will crash, but crashed nodes will not be restarted.
-3. Reads and writes can be issued to any node, and it is your job to ensure that it is correctly forwarded to a leader, if any.
+1. We will spawn exactly 5 docker containers. The environment variables will contain information about all of them when each node comes up.  
+2. Nodes will crash, but crashed nodes will not be restarted.  
+3. Reads and writes can be issued to any node using HTTP, in the same way as assignment 2, and the same responses are expected.  
