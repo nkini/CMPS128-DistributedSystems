@@ -1,5 +1,10 @@
 For the 3rd and final assignment, you will implement a fault-tolerant distributed key value store, in a CAP trade-off design space. We will inject faults in the system by crashing nodes, increase the system load to capacity, introduce network delays etc., and test for consistency and availability in spite of such faults, or in the presence of such loads.
 
+### Due Date:  
+Soft deadline: June 5th, 2016. 11:59pm.  
+Hard deadline: June 10th, 2016. 11:59pm.  
+No penalties for submitting after the soft deadline but before the hard deadline. Submissions after the hard deadline will not be graded.  
+
 ### Design space:
 Implement a C+P or an A+P KVS. Sure, if you feel particularly bold and rebellious, attempt C+A+P. Note that the P (partition tolerance) is mandatory. Introduce fault tolerance through a replication scheme. You can choose any scheme discussed in class, or even one of your own. The scheme of grading will differ depending on your design choice.
 
@@ -44,4 +49,4 @@ Here's a list of functionalities expected from your system:
 Notes about how we run the system:  
 1. We will spawn exactly 5 docker containers. The environment variables will contain information about all of them when each node comes up.  
 2. Nodes will crash, but crashed nodes will not be restarted.  
-3. Reads and writes can be issued to any node using HTTP, in the same way as assignment 2, and the same responses are expected.  
+3. Reads and writes can be issued to any node using HTTP, in the same way as assignment 2, and the same responses are expected.
