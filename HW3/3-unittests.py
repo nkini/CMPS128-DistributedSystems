@@ -1,3 +1,4 @@
+#VERSION 2
 import unittest
 import subprocess
 import requests
@@ -6,7 +7,7 @@ import random
 import time
 
 ports = ['49160','49161','49162','49163','49164']
-hostname = 'localhost'  #Windows and mac users can change this to the docker vm ip
+hostname = 'localhost'  #Windows and Mac users can change this to the docker vm ip
 has_been_run_once = False
 nodes_live = []
 nodes_address = []
@@ -22,16 +23,18 @@ class TestHW2(unittest.TestCase):
 
     def spin_up_nodes(self):
 
-        global nodes_alive, nodes_address
+        global nodes_alive, nodes_address, hostname
 
         self.ip_addresses = ['10.0.0.20','10.0.0.21','10.0.0.22','10.0.0.23','10.0.0.24']
         self.docker_internal_ports = ['12345','12346','12347','12348','12349']
         self.host_ports = ['49160','49161','49162','49163','49164']
         self.node_ids = []
 
-        members_list = [self.ip_addresses[i]+':'+self.docker_internal_ports[i] for i in range(5)]
-        nodes_address = ['http://'+x for x in members_list]
-        members_str = ','.join(members_list)
+        members_list_api = [hostname+':'+self.host_ports[i] for i in range(5)]
+        members_list_env = [self.ip_addresses[i]+':'+self.docker_internal_ports[i] for i in range(5)]
+
+        nodes_address = ['http://'+x for x in members_list_api]
+        members_str = ','.join(members_list_env)
 
         for i in range(5): 
             print i
@@ -45,7 +48,9 @@ class TestHW2(unittest.TestCase):
 
     def get_random_node(self):
         global nodes_address
-        return nodes_address[random.randint(0,len(nodes_address))]
+        a = random.randint(0,len(nodes_address)-1)
+        print a
+        return nodes_address[a]
 
     def setUp(self):
 
